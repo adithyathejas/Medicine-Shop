@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import Box from './UI/Box'
+import ItemContext from './Context/Item-Context';
 
 const ProductForm = () => {
+  const ItemCtx = useContext(ItemContext)
   const nameRef = useRef(null);
   const descriptionRef = useRef(null);
   const priceRef = useRef(null);
@@ -18,7 +20,13 @@ const ProductForm = () => {
     const quantity = quantityRef.current.value;
 
     // Handle form submission logic here
-    console.log('Submitted:', name, description, price, quantity);
+   let item ={
+    name: name,
+    description: description,
+    price:price,
+    quantity:quantity
+   }
+   ItemCtx.addItem(item)
 
     // Reset form fields
     nameRef.current.value = '';
@@ -73,7 +81,7 @@ const ProductForm = () => {
           </Form.Group>
         </Col>
         <Col xs={12} sm={2} className='d-flex justify-content-center'>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" >
         Add Item
       </Button>
         </Col>
