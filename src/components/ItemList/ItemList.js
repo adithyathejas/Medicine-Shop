@@ -7,16 +7,16 @@ import Box from "../UI/Box";
 const ItemList= ()=>{
     const ItemCtx = useContext(ItemContext)
     const Items=ItemCtx.items
-    const Itemlist=Items.map(item=><Item key={item.title} item={item}/>)
+    const Itemlist=Items.map(item=><Item key={item.name} item={item}/>)
     return(
         <Box>
         <Table striped bordered hover>
       <thead>
         <tr>
           <th>Name</th>
-          <th>Discription</th>
+          <th>Description</th>
           <th>Price</th>
-          <th>quantity</th>
+          <th>Quantity</th>
           <th>Action</th>
         </tr>
       </thead>
