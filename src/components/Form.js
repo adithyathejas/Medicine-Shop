@@ -37,7 +37,7 @@ const ProductForm = () => {
 
   return (
     <Box>
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} >
       <Row>
         <Col xs={12} sm={3}>
           <Form.Group controlId="formName">
@@ -46,6 +46,7 @@ const ProductForm = () => {
               type="text"
               placeholder="Enter name"
               ref={nameRef}
+              required
             />
           </Form.Group>
         </Col>
@@ -57,6 +58,7 @@ const ProductForm = () => {
               rows={3}
               placeholder="Enter description"
               ref={descriptionRef}
+              required
             />
           </Form.Group>
         </Col>
@@ -67,6 +69,7 @@ const ProductForm = () => {
               type="number"
               placeholder="Enter price"
               ref={priceRef}
+              required
             />
           </Form.Group>
         </Col>
@@ -77,6 +80,7 @@ const ProductForm = () => {
               type="number"
               placeholder="Enter quantity"
               ref={quantityRef}
+              required
             />
           </Form.Group>
         </Col>

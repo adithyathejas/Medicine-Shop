@@ -1,5 +1,5 @@
 const CartItem=(props)=>{
-    const item=props.Item
+    const item=props.item
     return (
         <tr>
           <td>{item.name}</td>
