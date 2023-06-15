@@ -12,6 +12,7 @@ const CartContextProvider = (props)=>{
     }
 
     const addToCart=(Item)=>{
+        
         let updatedItems=cartItems
         let CartItemIndex=cartItems.findIndex(x=>x.name===Item.name)
         if(CartItemIndex===-1){
@@ -23,6 +24,7 @@ const CartContextProvider = (props)=>{
             let newItem={...existingItem,quantity:Number(existingItem.quantity)+Number(Item.quantity)}
             updatedItems=[...cartItems.slice(0,CartItemIndex),newItem,...cartItems.slice(CartItemIndex+1)]
         }
+        
         setCartItems(updatedItems)
         setTotalItem(prevState=>prevState+1)
         
