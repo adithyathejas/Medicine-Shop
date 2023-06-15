@@ -12,10 +12,22 @@ const CartContextProvider = (props)=>{
     }
 
     const addToCart=(Item)=>{
-        const items=[...cartItems,Item]
-        setCartItems(items)
+        let updatedItems=cartItems
+        let CartItemIndex=cartItems.findIndex(x=>x.name===Item.name)
+        if(CartItemIndex===-1){
+            let newItem={...Item}
+            updatedItems=[...cartItems,newItem]
+        }
+        else{
+            let existingItem=cartItems[CartItemIndex]
+            let newItem={...existingItem,quantity:Number(existingItem.quantity)+Number(Item.quantity)}
+            updatedItems=[...cartItems.slice(0,CartItemIndex),newItem,...cartItems.slice(CartItemIndex+1)]
+        }
+        setCartItems(updatedItems)
         setTotalItem(prevState=>prevState+1)
-        console.log(totalItem)
+        
+       
+        
 
     }
 

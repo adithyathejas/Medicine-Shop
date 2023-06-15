@@ -10,14 +10,15 @@ const ItemList= ()=>{
     const Itemlist=Items.map(item=><Item key={item.name} item={item}/>)
     return(
         <Box>
-        <Table striped bordered hover>
+        <Table striped  hover>
       <thead>
         <tr>
           <th>Name</th>
           <th>Description</th>
           <th>Price</th>
           <th>Quantity</th>
-          <th>Action</th>
+          <th style={{width:'100px'}}></th>
+          <th>    </th>
         </tr>
       </thead>
       <tbody>{Itemlist}</tbody>
