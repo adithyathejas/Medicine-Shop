@@ -1,10 +1,11 @@
-import React, { useContext,useRef } from "react";
+import React, { useContext,useRef,useEffect } from "react";
 import { Button,Form } from "react-bootstrap";
 import CartContext from "../Context/Cart-Context";
 import ItemContext from "../Context/Item-Context";
 
 
 const Item = (props)=>{
+ 
     const cartCtx=useContext(CartContext)
     const itemCtx=useContext(ItemContext)
     const amountRef=useRef(null)

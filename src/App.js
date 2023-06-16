@@ -6,18 +6,25 @@ import ItemProvider from "./components/Context/Item-Context-Provider";
 import ItemList from "./components/ItemList/ItemList";
 import CartContextProvider from "./components/Context/CartContextProvider";
 import Cart from "./components/Cart/Cart";
+import ItemContext from "./components/Context/Item-Context";
+import { useEffect,useContext } from "react";
 
 const App= ()=>{
+  const itemCtx = useContext(ItemContext)
+  useEffect(()=>{
+   
+    itemCtx.itemSync()
+    console.log("item synced")
+  },[])
 
   return (
+    
     <>
     <CartContextProvider>
     <Navigation></Navigation>
-    <ItemProvider>
     <Form></Form>
     <ItemList/>
     <Cart/>
-    </ItemProvider>
     </CartContextProvider>
     </>
   )
